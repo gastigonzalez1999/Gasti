@@ -1,0 +1,71 @@
+/*
+  Global CSS Variables
+  ====================
+  These CSS custom properties (variables) define your color palette.
+  Use them anywhere with: var(--variable-name)
+
+  Example: background-color: var(--navy);
+
+  Benefits:
+  - Change colors in one place, updates everywhere
+  - Consistent theming across your entire site
+  - Easy to create dark/light mode later
+*/
+
+:root {
+  /* Dark backgrounds - from darkest to lightest */
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+
+  /* Text colors - from dimmest to brightest */
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+
+  /* Accent color - the bright teal/green that pops */
+  --green-bright: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+}
+
+/*
+  Base Styles
+  ===========
+  These apply to the entire page
+*/
+
+html {
+  /* Enables smooth scrolling when clicking nav links */
+  scroll-behavior: smooth;
+}
+
+/* Offset scroll position so content isn't hidden behind fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Selection highlight color when user selects text */
+::selection {
+  background: var(--lightest-navy);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--navy);
+  color: var(--slate);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Global link styling */
+a {
+  text-decoration: none;
+  color: var(--green-bright);
+}
+
+a:hover {
+  color: var(--green-bright);
+}

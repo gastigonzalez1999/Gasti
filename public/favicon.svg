@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Top facet - lightest -->
+  <polygon points="50,5 80,30 50,40 20,30" fill="#7eb8da"/>
+
+  <!-- Left facet - medium -->
+  <polygon points="20,30 50,40 35,90 10,45" fill="#4a90b8"/>
+
+  <!-- Right facet - medium dark -->
+  <polygon points="80,30 90,45 65,90 50,40" fill="#2d6a8a"/>
+
+  <!-- Bottom left facet - darker -->
+  <polygon points="35,90 50,40 50,95" fill="#1e4d6b"/>
+
+  <!-- Bottom right facet - darkest -->
+  <polygon points="65,90 50,95 50,40" fill="#15374d"/>
+
+  <!-- Center facet - bright -->
+  <polygon points="50,40 35,90 50,95 65,90" fill="#3a7ca5"/>
+</svg>
