@@ -1,0 +1,135 @@
+#experience {
+  min-height: 90vh;
+  padding: 100px 5vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.experience-content {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Left side: Company tabs */
+.job-tabs {
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid var(--lightest-navy);
+  flex-shrink: 0;
+}
+
+.job-tab {
+  background: none;
+  border: none;
+  padding: 12px 25px 12px 0;
+  text-align: left;
+  color: var(--slate);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-tab:hover {
+  color: var(--green-bright);
+}
+
+.job-tab.active {
+  color: var(--green-bright);
+}
+
+/* Active indicator line - on the right side */
+.job-tab.active::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--green-bright);
+}
+
+/* Right side: Job details */
+.job-details {
+  padding-left: 30px;
+  flex: 1;
+}
+
+.job-title {
+  color: var(--lightest-slate);
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.job-company {
+  color: var(--green-bright);
+  font-weight: bold;
+}
+
+.job-duration {
+  color: var(--slate);
+  font-size: 14px;
+  margin: 0 0 25px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.job-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-points li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  color: var(--slate);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.job-points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--green-bright);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .experience-content {
+    flex-direction: column;
+  }
+
+  .job-tabs {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 2px solid var(--lightest-navy);
+    overflow-x: auto;
+    margin-bottom: 20px;
+  }
+
+  .job-tab {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .job-tab.active::after {
+    top: auto;
+    bottom: -2px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+  }
+
+  .job-details {
+    padding-left: 0;
+  }
+}

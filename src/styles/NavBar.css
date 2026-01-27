@@ -1,0 +1,93 @@
+.navbar-custom {
+  background-color: var(--navy);
+  color: var(--lightest-slate);
+  font-weight: bold;
+}
+
+.navbar-custom .navbar-brand {
+  color: var(--lightest-slate) !important;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-custom .nav-link {
+  color: var(--lightest-slate) !important;
+  font-size: 14px;
+}
+
+.navbar-custom .nav-link:hover {
+  color: var(--green-bright) !important;
+}
+
+/* Social icons - make them white */
+.navbar-custom .nav-link svg {
+  color: var(--lightest-slate) !important;
+  stroke: var(--lightest-slate) !important;
+}
+
+.navbar-custom .nav-link:hover svg {
+  color: var(--green-bright) !important;
+  stroke: var(--green-bright) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-custom .navbar-brand {
+    display: none;
+  }
+
+  .navbar-custom .navbar-nav.me-auto .nav-link {
+    display: none;
+  }
+}
+
+/* Remove the underline animation */
+.navbar-custom .nav-link::after {
+  display: none;
+}
+
+/* Social icons */
+.social-icons .nav-link {
+  padding: 0 8px;
+}
+
+.social-icons .nav-link svg {
+  color: var(--lightest-slate);
+  transition: color 0.3s ease;
+}
+
+.social-icons .nav-link:hover svg {
+  color: var(--green-bright);
+}
+
+/* Mobile toggle button (hamburger menu) */
+.navbar-custom .navbar-toggler {
+  border-color: var(--green-bright);
+}
+
+.navbar-custom .navbar-toggler-icon {
+  /* This creates a custom hamburger icon color */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2364ffda' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Responsive design */
+@media (max-width: 991px) {
+  .navbar-custom .navbar-nav {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .navbar-custom .nav-link {
+    margin: 10px 0;
+  }
+
+  /* Remove the underline animation on mobile */
+  .navbar-custom .nav-link::after {
+    display: none;
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--lightest-navy);
+  }
+}

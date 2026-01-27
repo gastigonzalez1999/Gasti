@@ -1,0 +1,11 @@
+#credits {
+  padding: 50px 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.ending-credits {
+  color: var(--slate);
+  font-size: 14px;
+  line-height: 1.8;
+}
