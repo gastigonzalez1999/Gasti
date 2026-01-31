@@ -97,8 +97,48 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  #projects {
+    padding: 80px 16px;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+
+  .folder-icon {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 400px) {
+  #projects {
+    padding: 60px 12px;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description {
+    font-size: 13px;
   }
 }
 
@@ -141,6 +181,17 @@
   left: 0;
   right: 0;
   bottom: 0;
+  /* Dark gradient for text legibility */
+  background: linear-gradient(
+    to top,
+    rgba(10, 25, 47, 0.95) 0%,
+    rgba(10, 25, 47, 0.8) 30%,
+    rgba(10, 25, 47, 0.4) 60%,
+    rgba(10, 25, 47, 0.2) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .carousel-caption {
@@ -156,12 +207,14 @@
   font-size: 38px;
   font-weight: bold;
   color: var(--lightest-slate);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .carousel-caption p {
   font-weight: bold;
   font-size: 18px;
   color: var(--lightest-slate);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .spotlight-tech {

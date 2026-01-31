@@ -66,12 +66,33 @@
   font-size: 64px;
 }
 
-/* Mobile: stack vertically */
+/* Tablet */
+@media only screen and (max-width: 1024px) {
+  #intro {
+    gap: 3vw;
+  }
+
+  .intro-title {
+    font-size: 58px;
+  }
+
+  .intro-description {
+    font-size: 18px;
+  }
+
+  .typed-cursor {
+    font-size: 58px;
+  }
+}
+
+/* Mobile */
 @media only screen and (max-width: 768px) {
   #intro {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding: 20px 24px;
     gap: 20px;
   }
@@ -93,9 +114,68 @@
   .intro-description {
     text-align: center;
     font-size: 16px;
+    padding-bottom: 24px;
+    line-height: 1.4;
+  }
+
+  .intro-contact {
+    font-size: 16px;
+    padding: 10px 24px;
   }
 
   .typed-cursor {
     font-size: 42px;
+  }
+}
+
+/* Small mobile */
+@media only screen and (max-width: 480px) {
+  #intro {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .intro-title {
+    font-size: 32px;
+  }
+
+  .intro-description {
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+
+  .intro-contact {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+
+  .typed-cursor {
+    font-size: 32px;
+  }
+}
+
+/* Extra small mobile (iPhone SE, etc.) */
+@media only screen and (max-width: 375px) {
+  #intro {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .intro-title {
+    font-size: 26px;
+  }
+
+  .intro-description {
+    font-size: 13px;
+    padding-bottom: 16px;
+  }
+
+  .intro-contact {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .typed-cursor {
+    font-size: 26px;
   }
 }

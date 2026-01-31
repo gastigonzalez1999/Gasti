@@ -8,31 +8,50 @@ const ParticlePortrait = () => {
   const imageLoadedRef = useRef(false);
   const startTimeRef = useRef(null);
 
-  // Canvas size - responsive
-  const [size, setSize] = useState(400);
+  // Canvas size - responsive (start with null to wait for proper sizing)
+  const [size, setSize] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
   // Handle responsive sizing
   useEffect(() => {
     const updateSize = () => {
-      const width = window.innerWidth;
+      // Use documentElement.clientWidth as fallback for more reliable mobile sizing
+      const width = document.documentElement.clientWidth || window.innerWidth;
+      let newSize;
       if (width <= 480) {
-        setSize(Math.min(220, width - 40));
+        newSize = Math.min(220, width - 40);
       } else if (width <= 768) {
-        setSize(Math.min(280, width - 60));
+        newSize = Math.min(280, width - 60);
       } else {
-        setSize(400);
+        newSize = 400;
       }
+      setSize(newSize);
+      setIsReady(true);
     };
 
-    updateSize();
+    // Initial size calculation with small delay to let viewport settle on mobile
+    const initialTimeout = setTimeout(updateSize, 100);
+
+    // Also update when page fully loads (images, fonts, etc.)
+    window.addEventListener('load', updateSize);
     window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
+    // Mobile orientation changes
+    window.addEventListener('orientationchange', () => {
+      setTimeout(updateSize, 150);
+    });
+
+    return () => {
+      clearTimeout(initialTimeout);
+      window.removeEventListener('load', updateSize);
+      window.removeEventListener('resize', updateSize);
+      window.removeEventListener('orientationchange', updateSize);
+    };
   }, []);
 
   // Main animation effect
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !size) return;
 
     const ctx = canvas.getContext('2d');
     canvas.width = size;
@@ -219,9 +238,15 @@ const ParticlePortrait = () => {
     };
   }, [size]);
 
+  // Don't render until viewport is properly sized
+  if (!isReady || !size) {
+    return <div style={{ width: '100%', maxWidth: 400, aspectRatio: '1/1' }} />;
+  }
+
   return (
     <canvas
       ref={canvasRef}
+      key={size} // Force re-mount when size changes
       style={{
         width: `${size}px`,
         height: `${size}px`,
